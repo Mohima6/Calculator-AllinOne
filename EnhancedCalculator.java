@@ -170,3 +170,58 @@ while (choice != 0);
         System.out.printf("Division: %.2f%n", num1/num2);
     }
 
+     private static void solveQuadraticEquation(Scanner scanner){
+        System.out.println("Solve Quadratic Equation (ax^2 + bx + c = 0)");
+        System.out.print("Enter a: ");
+        double a = getVaildDoubleInput(scanner);
+        System.out.print("Enter b: ");
+        double b = getVaildDoubleInput(scanner);
+        System.out.print("Enter c: ");
+        double c = getVaildDoubleInput(scanner);
+
+        double discriminant = b*b - 4 * a * c ;
+        if (discriminant>0) {
+            double root1 = (-b+ Math.sqrt(discriminant)) / (2 * a);
+            double root2 =  (-b - Math.sqrt(discriminant)) / (2 * a);
+        System.out.printf("Roots are real and different: %.2f, %.2f%n" ,  root1,root2);
+
+        }   else if (discriminant==0) {
+            double root = -b/ (2*a);
+            System.out.printf("Roots are real and the same:%.2f%n", root);
+
+            } else {
+            System.out.println("No real roots.");
+        }
+               
+    }
+
+    private static void calculatePercentage(Scanner scanner){
+        System.out.println("Enter total: ");
+        double total = getVaildDoubleInput(scanner);
+        System.out.print("Enter percent to calculate: ");
+        double percentage = getVaildIntegerInput(scanner);
+        System.out.printf("%.2f%% of %.2f is %.2f%n", percentage, total, (percentage/100)*total );
+    }
+private static void loanAmortizationSchedule(Scanner scanner){
+        System.out.print("Enter loan amount: ");
+        double principal = getVaildDoubleInput(scanner);
+        System.out.print("Enter annual interest rate (in%): ");
+        double annualRate = getVaildDoubleInput(scanner);
+        System.out.print("Enter loan term(in years): ");
+        int years = getVaildIntegerInput(scanner);
+
+        double monthlyRate = (annualRate/100) / 12 ;
+        int months = years*12;
+        double monthlyPayment = (principal*monthlyRate) / (1-Math.pow(1+monthlyRate, -months));
+        System.out.printf("Monthly Payment: %.2f%n", monthlyPayment);
+    }
+
+    private static void unitConverter(Scanner scanner){
+        System.out.print("Enter value in meters to convert to kilometers: ");
+        double meters = getVaildDoubleInput(scanner);
+        System.out.printf("%.2f meters = %.2f kilometers%n", meters, meters/1000);
+        System.out.print("Enter value in grams to convert ");
+    }
+
+
+
