@@ -220,7 +220,46 @@ private static void loanAmortizationSchedule(Scanner scanner){
         System.out.print("Enter value in meters to convert to kilometers: ");
         double meters = getVaildDoubleInput(scanner);
         System.out.printf("%.2f meters = %.2f kilometers%n", meters, meters/1000);
-        System.out.print("Enter value in grams to convert ");
+        System.out.print("Enter value in grams to convert to kilograms: ");
+        double grams = getVaildDoubleInput(scanner);
+        System.out.printf("%.2f grams = %.2f kilograms%n", grams, grams/1000);
+
+    }
+
+    private static void statisticsCalculator(Scanner scanner){
+        System.out.print("Enter number of values: ");
+        int n = getVaildIntegerInput(scanner);
+        double [] values = new double[n];
+        double sum = 0;
+
+        for (int i = 0; i <n ; i++) {
+            System.out.print("Enter value" + (i+1) + ":");
+            values[i] = getVaildDoubleInput(scanner);
+            sum += values[i];
+        }
+
+        double mean = sum/n ;
+        System.out.printf("Mean: %.2f%n", mean);
+        //add calculations for medians and mode as needed
+
+    }
+     private static void timeZoneConverter(Scanner scanner){
+        System.out.print("Enter time in hours(24 hour format): ");
+        int hours = getVaildIntegerInput(scanner);
+        System.out.print("Enter timezone offset(e.g., -5 for EST): ");
+        int offset = getVaildIntegerInput(scanner);
+        int connvertedTime = (hours+offset) % 24;
+        System.out.printf("Converted time: %d:00 hours %n", connvertedTime);
+
+    }
+
+    private static void solveLinearEquation(Scanner scanner){
+        System.out.print("Enter a (for ax+b =0): ");
+        double a = getVaildDoubleInput(scanner);
+        System.out.println("Enter b: ");
+        double b = getVaildDoubleInput(scanner);
+        double solution = -b/a ;
+        System.out.printf("Solution: x = %.2f%n", solution);
     }
 
 
